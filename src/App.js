@@ -8,7 +8,6 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Register from "./components/Register/Register";
 import Users from "./components/Users/Users";
 import { fetchUsersHandler } from "./Store/fetchUsers";
-import { userActions } from "./Store/userSlice";
 
 const App = () => {
   const users = useSelector((state) => state.users.users);
@@ -23,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchUsersHandler());
-  }, []);
+  }, [dispatch]);
 
   const filteredUsers = users.filter((user) => {
     let first_name = user.first_name.toLocaleLowerCase();

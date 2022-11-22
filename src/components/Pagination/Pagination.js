@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { userActions } from "../../Store/userSlice";
 import User from "../User/User";
 import "./Pagination.css";
@@ -14,7 +13,7 @@ const Pagination = ({ data, pageLimit, title, dataLimit }) => {
 
   useEffect(() => {
     setPages(Math.ceil(data.length / dataLimit));
-  }, [data]);
+  }, [data, dataLimit]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const goToNextPage = () => {
